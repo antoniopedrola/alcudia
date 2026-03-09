@@ -1,101 +1,61 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Navbar Scroll Effect
+    // Navigation Scroll Effect
     const navbar = document.getElementById('navbar');
-    
-    const handleScroll = () => {
+    window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    // Initial check
-    handleScroll();
+    });
 
-    // 2. Mobile Menu Toggle
-    const mobileMenu = document.getElementById('mobile-menu');
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
-    const navItems = document.querySelectorAll('.nav-links a');
-
-    mobileMenu.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
+    menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('is-active');
     });
 
     // Close mobile menu when clicking a link
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
             navLinks.classList.remove('active');
+            menuToggle.classList.remove('is-active');
         });
     });
 
-    // 3. Smooth Scrolling for Anchor Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                // Adjust scroll position for fixed navbar
-                const navHeight = navbar.offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // 4. Scroll Reveal Animations using Intersection Observer
-    const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+    // Automatic Carousels
+    const carousels = document.querySelectorAll('.tour-carousel');
     
-    const revealOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
+    carousels.forEach(carousel => {
+        const inner = carousel.querySelector('.carousel-inner');
+        const images = inner.querySelectorAll('img');
+        const interval = parseInt(carousel.getAttribute('data-autoplay')) || 3000;
+        let currentIndex = 0;
+
+        if (images.length > 1) {
+            setInterval(() => {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }, interval);
+        }
+    });
+
+    // Simple reveal on scroll
+    const reveal = () => {
+        const reveals = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+        for (let i = 0; i < reveals.length; i++) {
+            const windowHeight = window.innerHeight;
+            const elementTop = reveals[i].getBoundingClientRect().top;
+            const elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('revealed');
+            }
+        }
     };
-    
-    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            }
-            entry.target.classList.add('active');
-            observer.unobserve(entry.target);
-        });
-    }, revealOptions);
-    
-    revealElements.forEach(el => {
-        revealOnScroll.observe(el);
-    });
-    
-    // 5. Active link on scroll
-    const sections = document.querySelectorAll('section');
-    
-    window.addEventListener('scroll', () => {
-        let current = '';
-        const navHeight = navbar.offsetHeight;
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (scrollY >= (sectionTop - navHeight - 100)) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navItems.forEach(a => {
-            a.classList.remove('active');
-            if (a.getAttribute('href') === `#${current}`) {
-                a.classList.add('active');
-            }
-        });
-    });
+
+    window.addEventListener('scroll', reveal);
+    reveal(); // run once on load
 });
