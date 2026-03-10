@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const elementTop = reveals[i].getBoundingClientRect().top;
             const elementVisible = 150;
             if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add('revealed');
+                reveals[i].classList.add('active');
             }
         }
     };

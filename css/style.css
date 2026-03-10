@@ -264,7 +264,8 @@ img {
 }
 
 .navbar.scrolled .logo,
-.navbar.scrolled .nav-links a {
+.navbar.scrolled .nav-links a,
+.navbar.scrolled .nav-phone {
     color: var(--primary-color);
 }
 
@@ -301,6 +302,20 @@ img {
     display: flex;
     align-items: center;
     gap: 2rem;
+}
+
+.nav-phone {
+    margin-left: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--white);
+    white-space: nowrap;
+}
+
+.nav-phone i {
+    color: var(--secondary-color);
 }
 
 .nav-links a {
