@@ -26,10 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Automatic Carousels
-    const carousels = document.querySelectorAll('.tour-carousel');
-    
+    const carousels = document.querySelectorAll('.tour-carousel, .boat-carousel');
+
     carousels.forEach(carousel => {
         const inner = carousel.querySelector('.carousel-inner');
+        if (!inner) return;
         const images = inner.querySelectorAll('img');
         const interval = parseInt(carousel.getAttribute('data-autoplay')) || 3000;
         let currentIndex = 0;

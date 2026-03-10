@@ -454,14 +454,36 @@ img {
     filter: blur(50px);
 }
 
-.boat-image {
-    width: 100%;
-    height: auto;
+/* Boat carousel (reduced height) */
+.boat-carousel {
+    position: relative;
+    height: 360px;
+    overflow: hidden;
     border-radius: var(--border-radius);
-    transition: transform 0.5s ease;
 }
 
-.boat-image-wrapper:hover .boat-image {
+.boat-carousel .carousel-inner {
+    width: 100%;
+    height: 100%;
+}
+
+.boat-carousel .carousel-inner img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 0.5s ease;
+}
+
+.boat-carousel .carousel-inner img.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.boat-image-wrapper:hover .boat-carousel .carousel-inner img.active {
     transform: scale(1.02);
 }
 
@@ -1046,6 +1068,10 @@ footer {
 
     .specs-grid {
         grid-template-columns: 1fr;
+    }
+
+    .boat-carousel {
+        height: 260px;
     }
 
     .footer-content {
