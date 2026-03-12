@@ -637,6 +637,14 @@ img {
     object-fit: cover;
 }
 
+.captain-gallery .img-1 img {
+    object-position: center top;
+}
+
+.captain-gallery .img-2 img {
+    object-position: center;
+}
+
 .captain-gallery .img-1 {
     height: 320px;
     box-shadow: var(--shadow-lg);
@@ -820,6 +828,83 @@ img {
 /* =========================================
    CONTACT SECTION
    ========================================= */
+.media-section {
+    background-color: var(--bg-light);
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 2.5rem;
+    align-items: stretch;
+}
+
+.media-video video {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+}
+
+.media-video-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.media-video-row video {
+    height: 180px;
+}
+
+.media-instagram {
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem;
+}
+
+.media-instagram-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.media-instagram-header i {
+    font-size: 2rem;
+    color: #E1306C;
+}
+
+.media-instagram-header .handle {
+    font-weight: 600;
+    color: var(--primary-color);
+    display: block;
+}
+
+.media-instagram-header .sub {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.media-instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.media-instagram-grid img {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius-sm);
+    object-fit: cover;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.media-instagram-grid a:hover img {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-md);
+}
+
 .contact-section {
     background-image: url('../images/zar-formenti-87-marina-wide.jpg');
     background-size: cover;
@@ -1011,6 +1096,10 @@ footer {
         height: 260px;
     }
 
+    .media-grid {
+        grid-template-columns: 1fr;
+    }
+
     .captain-content.reverse .captain-details {
         order: 2;
     }
@@ -1078,6 +1167,14 @@ footer {
 
     .boat-carousel {
         height: 260px;
+    }
+
+    .media-instagram {
+        margin-top: 1.5rem;
+    }
+
+    .media-video-row {
+        grid-template-columns: 1fr;
     }
 
     .footer-content {
