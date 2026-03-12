@@ -975,17 +975,9 @@ img {
     width: 100%;
 }
 
-.contact-content .section-title {
-    display: inline-block;
-    padding: 1.25rem 1.75rem;
-    border-radius: var(--border-radius-sm);
-    background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.3), transparent 60%), rgba(15, 23, 42, 0.75);
-    margin-bottom: 1.5rem;
-}
-
 .contact-content .section-title h2 {
     font-size: 2.4rem;
-    text-shadow: 0 4px 14px rgba(0, 0, 0, 0.7);
+    color: var(--white);
 }
 
 .contact-content p {
