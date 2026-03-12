@@ -302,6 +302,10 @@ img {
     color: var(--secondary-color);
 }
 
+.logo-text {
+    white-space: nowrap;
+}
+
 .nav-links {
     display: flex;
     align-items: center;
@@ -1172,6 +1176,27 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        height: 64px;
+    }
+
+    .nav-container {
+        padding: 0 1.25rem;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .logo-text {
+        display: none;
+    }
+
+    .nav-phone {
+        font-size: 0.8rem;
+        margin-left: 0.75rem;
+    }
+
     .nav-links {
         position: fixed;
         top: var(--nav-height);
