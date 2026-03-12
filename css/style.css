@@ -835,7 +835,7 @@ img {
 .media-instagram {
     display: flex;
     flex-direction: column;
-    padding: 1.75rem;
+    padding: 1.25rem 1.5rem 1.5rem;
 }
 
 .media-instagram-header {
@@ -863,15 +863,15 @@ img {
 
 .media-instagram-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
 }
 
 .media-instagram-grid img {
     width: 100%;
     height: auto;
-    aspect-ratio: 4 / 3;
-    border-radius: var(--border-radius-sm);
+    aspect-ratio: 1 / 1;
+    border-radius: 4px;
     object-fit: cover;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
@@ -923,7 +923,7 @@ img {
 }
 
 .contact-section {
-    background-image: url('../images/zar-formenti-87-marina-wide.jpg');
+    background-image: url('../images/zar-formenti-87-hull-profile.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -937,7 +937,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(5, 15, 32, 0.9), rgba(5, 15, 32, 0.85));
+    background: linear-gradient(to bottom, rgba(5, 15, 32, 0.95), rgba(5, 15, 32, 0.9));
 }
 
 .contact-wrapper {
@@ -950,6 +950,14 @@ img {
 .contact-content {
     max-width: 600px;
     width: 100%;
+}
+
+.contact-content .section-title {
+    display: inline-block;
+    padding: 1.25rem 1.75rem;
+    border-radius: var(--border-radius-sm);
+    background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.3), transparent 60%), rgba(15, 23, 42, 0.75);
+    margin-bottom: 1.5rem;
 }
 
 .contact-content .section-title h2 {
@@ -1205,7 +1213,8 @@ footer {
     }
 
     .media-instagram-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
     }
 
     .media-videos-row {
