@@ -805,6 +805,19 @@ img {
     gap: 0.4rem;
 }
 
+.tour-duration-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.tour-duration-text i {
+    color: var(--accent-color);
+}
+
 .tour-info {
     padding: 2rem;
     background: var(--white);
@@ -879,6 +892,12 @@ img {
 .media-instagram-grid a:hover img {
     transform: scale(1.03);
     box-shadow: var(--shadow-md);
+}
+
+.media-instagram-cta {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 .media-videos {
