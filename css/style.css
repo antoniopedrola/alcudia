@@ -904,46 +904,6 @@ img {
     justify-content: center;
 }
 
-.media-videos {
-    margin-top: 2.5rem;
-    padding: 2rem;
-}
-
-.media-videos-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.media-videos-header i {
-    font-size: 1.6rem;
-    color: var(--accent-color);
-}
-
-.media-videos-header .handle {
-    font-weight: 600;
-    color: var(--primary-color);
-    display: block;
-}
-
-.media-videos-header .sub {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-}
-
-.media-videos-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-}
-
-.media-videos-row video {
-    width: 100%;
-    height: 280px;
-    border-radius: var(--border-radius-sm);
-    object-fit: cover;
-}
 
 .contact-section {
     background-image: url('../images/zar-formenti-87-hull-profile.jpg');
@@ -1143,11 +1103,6 @@ footer {
     .captain-gallery .img-1,
     .captain-gallery .img-2 {
         height: 260px;
-    }
-
-    .media-videos-row {
-        grid-template-columns: repeat(2, 1fr);
-        row-gap: 1.25rem;
     }
 
     .media-instagram-grid {
