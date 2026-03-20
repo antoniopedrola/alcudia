@@ -663,7 +663,7 @@ img {
     position: relative;
     border-radius: var(--border-radius);
     overflow: hidden;
-    padding: 0.5rem;
+    padding: 0.25rem;
     background: var(--white);
 }
 
@@ -672,7 +672,7 @@ img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    background-color: var(--white);
+    background-color: transparent;
 }
 
 .captain-gallery .img-1 img {
@@ -684,35 +684,19 @@ img {
 }
 
 .captain-gallery .img-1 {
-    height: 420px;
     box-shadow: var(--shadow-lg);
 }
 
 .captain-gallery .img-2 {
-    height: 420px;
+    box-shadow: none;
 }
 
-.blob {
-    position: absolute;
-    top: 10%;
-    right: -10%;
-    width: 260px;
-    height: 260px;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(59, 130, 246, 0.2));
-    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    z-index: 0;
-    animation: morph 8s ease-in-out infinite both alternate;
+.captain-gallery .img-1,
+.captain-gallery .img-2 {
+    aspect-ratio: 4 / 5;
+    height: auto;
 }
 
-@keyframes morph {
-    0% {
-        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    }
-
-    100% {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    }
-}
 
 /* =========================================
    TOURS SECTION
@@ -1168,7 +1152,7 @@ footer {
 
     .captain-gallery .img-1,
     .captain-gallery .img-2 {
-        height: 260px;
+        aspect-ratio: 4 / 5;
     }
 
     .captain-gallery {
