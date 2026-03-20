@@ -663,24 +663,22 @@ img {
     position: relative;
     border-radius: var(--border-radius);
     overflow: hidden;
-    padding: 0.25rem;
-    background: var(--white);
+    padding: 0.35rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: var(--shadow-sm);
 }
 
 .captain-gallery img {
     border-radius: calc(var(--border-radius) - 0.5rem);
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    background-color: transparent;
+    object-fit: cover;
+    object-position: center;
 }
 
 .captain-gallery .img-1 img {
-    object-position: 50% 25%;
-}
-
-.captain-gallery .img-2 img {
-    object-position: center;
+    object-position: 50% 20%;
 }
 
 .captain-gallery .img-1 {
