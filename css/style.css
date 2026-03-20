@@ -642,7 +642,7 @@ img {
 }
 
 .captain-gallery .img-1 img {
-    object-position: center top;
+    object-position: 50% 25%;
 }
 
 .captain-gallery .img-2 img {
