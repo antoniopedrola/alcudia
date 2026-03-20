@@ -839,6 +839,21 @@ img {
     color: var(--accent-color);
 }
 
+.tour-all-inclusive {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    margin-top: -0.25rem;
+    margin-bottom: 1rem;
+}
+
+.tour-all-inclusive i {
+    color: var(--accent-color);
+}
+
 .tour-info {
     padding: 1.5rem;
     background: var(--white);
