@@ -466,6 +466,39 @@ img {
     border-radius: var(--border-radius);
 }
 
+.boat-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: none;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+    transition: background 0.2s ease, transform 0.2s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.boat-carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-50%) scale(1.04);
+}
+
+.boat-carousel-btn.prev {
+    left: 14px;
+}
+
+.boat-carousel-btn.next {
+    right: 14px;
+}
+
 .boat-carousel .carousel-inner {
     width: 100%;
     height: 100%;

@@ -25,22 +25,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Automatic Carousels
+    // Automatic Carousels (supports manual arrows for the boat carousel)
     const carousels = document.querySelectorAll('.tour-carousel, .boat-carousel');
 
     carousels.forEach(carousel => {
         const inner = carousel.querySelector('.carousel-inner');
         if (!inner) return;
+
         const images = inner.querySelectorAll('img');
         const interval = parseInt(carousel.getAttribute('data-autoplay')) || 3000;
+
+        // Find the currently active image index (defaults to 0)
         let currentIndex = 0;
+        for (let i = 0; i < images.length; i++) {
+            if (images[i].classList.contains('active')) {
+                currentIndex = i;
+                break;
+            }
+        }
+
+        const setActive = (nextIndex) => {
+            images[currentIndex].classList.remove('active');
+            currentIndex = nextIndex;
+            images[currentIndex].classList.add('active');
+        };
 
         if (images.length > 1) {
             setInterval(() => {
-                images[currentIndex].classList.remove('active');
-                currentIndex = (currentIndex + 1) % images.length;
-                images[currentIndex].classList.add('active');
+                const nextIndex = (currentIndex + 1) % images.length;
+                setActive(nextIndex);
             }, interval);
+        }
+
+        // Manual controls (only present on the boat carousel)
+        const prevBtn = carousel.querySelector('.boat-carousel-btn.prev');
+        const nextBtn = carousel.querySelector('.boat-carousel-btn.next');
+
+        if (prevBtn && nextBtn && images.length > 1) {
+            prevBtn.addEventListener('click', () => {
+                const nextIndex = (currentIndex - 1 + images.length) % images.length;
+                setActive(nextIndex);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                const nextIndex = (currentIndex + 1) % images.length;
+                setActive(nextIndex);
+            });
         }
     });
 
